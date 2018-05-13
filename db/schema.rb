@@ -10,6 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20180502144552) do
+
+  create_table "lessons", force: :cascade do |t|
+    t.string "name"
+    t.string "start_time"
+    t.string "end_time"
+    t.integer "teacher_id"
+    t.integer "limit"
+    t.string "repeat_on"
+    t.date "lesson_start_at"
+    t.date "lesson_end_at"
+    t.index ["teacher_id"], name: "index_lessons_on_teacher_id"
+  end
+
+  create_table "lessons_week_days", force: :cascade do |t|
+    t.integer "lesson_id"
+    t.integer "week_day_id"
+    t.index ["lesson_id"], name: "index_lessons_week_days_on_lesson_id"
+    t.index ["week_day_id"], name: "index_lessons_week_days_on_week_day_id"
+  end
+
+  create_table "teachers", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "week_days", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
