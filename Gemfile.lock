@@ -15,7 +15,7 @@ GIT
       selectize-rails (~> 0.6)
 
 GEM
-  remote: https://rubygems.org/
+  remote: https://gems.ruby-china.org/
   specs:
     actioncable (5.1.6)
       actionpack (= 5.1.6)
